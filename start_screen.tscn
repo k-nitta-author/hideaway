@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://utir3ckup6af"]
+
+[ext_resource type="Script" path="res://start_screen.gd" id="1_0mrfg"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0mrfg")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.0
+offset_top = -11.5
+offset_right = 38.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hideaway"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 402.0
+offset_right = 670.0
+offset_bottom = 597.0
+
+[node name="StartGame" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start"
+underline = 2
+
+[node name="Quit" type="LinkButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

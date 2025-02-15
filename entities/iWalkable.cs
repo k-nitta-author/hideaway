@@ -1,13 +1,14 @@
+using System;
+using Godot;
+
 namespace Hideaway.Entities
 {
     public interface IWalkable
     {
         double Speed {get; set;}
-        double PositionX { get; set; }
-        double PositionY { get; set; }
 
-        void Walk(float distance);
+        void Walk(double distance, Vector2 direction);
         void Stop();
-        bool IsWalking { get; }
+        bool IsWalking { get; set;}
     }
 }

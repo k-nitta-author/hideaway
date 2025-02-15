@@ -1,15 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://ubbqiin52ger"]
+[gd_scene load_steps=6 format=3 uid="uid://ubbqiin52ger"]
 
-[ext_resource type="Script" path="res://stages/main.gd" id="1_rctvk"]
-[ext_resource type="Script" path="res://stages/Player.cs" id="2_8qycq"]
+[ext_resource type="Script" path="res://stages/Stage.cs" id="1_5hys1"]
+[ext_resource type="PackedScene" uid="uid://bmc0q0jr8wvjl" path="res://entities/player/player.tscn" id="2_vuc75"]
+[ext_resource type="Script" path="res://stages/CharacterBody2d.cs" id="4_bjre8"]
+[ext_resource type="PackedScene" uid="uid://caeyphhgnahcy" path="res://entities/props/StageDoor.tscn" id="5_46u3h"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5at16"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhult"]
+size = Vector2(152, 315)
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_rctvk")
+script = ExtResource("1_5hys1")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("2_8qycq")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_5at16")
+[node name="Player" parent="." instance=ExtResource("2_vuc75")]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_bjre8")
+
+[node name="StageDoor" parent="." instance=ExtResource("5_46u3h")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StageDoor"]
+position = Vector2(127, 162)
+shape = SubResource("RectangleShape2D_fhult")

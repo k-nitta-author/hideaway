@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cic5xbbe7ov5h"]
+
+[ext_resource type="Script" path="res://stages/Stage.cs" id="1_olo1p"]
+[ext_resource type="PackedScene" uid="uid://ys3essiotcyy" path="res://stages/hud/hud.tscn" id="2_16kgp"]
+[ext_resource type="PackedScene" uid="uid://bmc0q0jr8wvjl" path="res://entities/player/player.tscn" id="3_kpuq2"]
+
+[node name="Stage" type="Node2D"]
+script = ExtResource("1_olo1p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Hud" parent="." instance=ExtResource("2_16kgp")]
+
+[node name="Player" parent="." instance=ExtResource("3_kpuq2")]
+position = Vector2(701, 379)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
