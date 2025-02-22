@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://xh24t76jtcsd"]
+
+[ext_resource type="Script" path="res://entities/adversara/adversara.cs" id="1_foro4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vo2wh"]
+
+[node name="Adversara" type="CharacterBody2D"]
+script = ExtResource("1_foro4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vo2wh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

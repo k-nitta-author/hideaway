@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d052mhk3s6ea5"]
+
+[ext_resource type="Script" path="res://entities/mob-npc/mob-npc.cs" id="1_ubnj4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6nq4"]
+
+[node name="Mob-npc" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ubnj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_q6nq4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -7,7 +7,10 @@ namespace Hideaway.Entities
     {
         double Speed {get; set;}
 
-        void Walk(double distance, Vector2 direction);
+        void Walk(double distance, Vector2 direction); // walk in the given direction
+        
+        string GetWalkAnimation(Vector2 direction); // Gets the walk animation based on the direction.
+
         void Stop();
         bool IsWalking { get; set;}
     }

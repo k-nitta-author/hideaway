@@ -2,11 +2,21 @@ using Godot;
 using Hideaway.Events;
 using System;
 
-public partial class Main : Node2D
+public partial class Stage : Node2D
 {
+
+
+	private AnimationPlayer anim;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		// initialize child nodes
+		anim = GetNode<AnimationPlayer>("AnimationPlayer"); // used to animate stage behaviors like scene transitions, etc.
+		
+
+		// Implement logic to start the stage
+		PlayStageIntro();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,6 +45,7 @@ public partial class Main : Node2D
 
 	public void PlayStageIntro(){
 		// Implement logic to play the stage intro
+
 	}
 	
 	// This method is called when the player enters a stage door

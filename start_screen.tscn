@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://utir3ckup6af"]
+[gd_scene load_steps=3 format=3 uid="uid://utir3ckup6af"]
 
 [ext_resource type="Script" path="res://start_screen.gd" id="1_0mrfg"]
+[ext_resource type="Theme" uid="uid://d1145g8rw43b2" path="res://assets/ui/defaultTheme.tres" id="1_657fy"]
 
 [node name="StartScreen" type="Control"]
 layout_mode = 3
@@ -9,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_657fy")
 script = ExtResource("1_0mrfg")
 
 [node name="Label" type="Label" parent="."]

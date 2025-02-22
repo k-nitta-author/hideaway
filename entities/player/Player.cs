@@ -9,6 +9,10 @@ public partial class Player : CharacterBody2D, IEntity, IWalkable
     public double Speed { get; set; } = 100;
 	public bool isWalking { get; set;}
 
+    bool IWalkable.IsWalking { get => IsWalking; set => throw new NotImplementedException(); }
+    public AnimationPlayer Anim { get; set; }
+    public Sprite2D Sprite { get; set; }
+
     public override void _Ready()
     {
         this.Initialize();
@@ -19,15 +23,19 @@ public partial class Player : CharacterBody2D, IEntity, IWalkable
 		get { return isWalking; }
 	}
 
-    bool IWalkable.IsWalking { get => IsWalking; set => throw new NotImplementedException(); }
 
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
+
+    // Called every frame. 
+
     public void Walk(double distance, Vector2 direction)
 	{
 
         if (this.IsWalking){
-            return;
+
+            GetWalkAnimation(direction);
+
+            Anim.Play("walk");
         }
 
         else{
@@ -39,9 +47,6 @@ public partial class Player : CharacterBody2D, IEntity, IWalkable
             WalkStart walkStart = new WalkStart(this);
 
             //GD.Print($"Walking {distance} units");
-
-            
-
         }
 
 
@@ -78,6 +83,11 @@ public partial class Player : CharacterBody2D, IEntity, IWalkable
     public void Initialize()
     {
         GD.Print("Player initialized");
+        
+        this.Anim = GetNode<AnimationPlayer>("AnimationPlayer");
+        this.Sprite = GetNode<Sprite2D>("Sprite");
+
+
     }
 
     public void Update(double delta)
@@ -109,5 +119,12 @@ public partial class Player : CharacterBody2D, IEntity, IWalkable
 
     }
 
+    public string GetWalkAnimation(Vector2 direction)
+    {
+
+        GD.Print(direction);
+
+        return "";
+    }
 
 }

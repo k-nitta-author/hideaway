@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ys3essiotcyy"]
+[gd_scene load_steps=5 format=3 uid="uid://ys3essiotcyy"]
 
 [ext_resource type="Script" path="res://stages/hud/hud.cs" id="1_l48kn"]
+[ext_resource type="PackedScene" uid="uid://5iexhjb4ajyi" path="res://stages/hud/pause_menu.tscn" id="2_g7nov"]
 
 [sub_resource type="Animation" id="Animation_u33un"]
 resource_name = "basic_transition"
@@ -34,3 +35,5 @@ text = "StageName"
 libraries = {
 "": SubResource("AnimationLibrary_7dphf")
 }
+
+[node name="PauseMenu" parent="." instance=ExtResource("2_g7nov")]

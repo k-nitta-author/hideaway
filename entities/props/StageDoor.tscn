@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://caeyphhgnahcy"]
+
+[ext_resource type="Script" path="res://entities/props/StageDoor.cs" id="1_wqf46"]
+
+[node name="StageDoor" type="Area2D"]
+script = ExtResource("1_wqf46")
+nextStage = "Stage"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_StageDoor_body_entered"]
