@@ -15,6 +15,7 @@ namespace Hideaway.Entities
 
         void Initialize();
         void Update(double delta);
+
         void Destroy(); // destroys the entity, preferably after emitting a despawn event
 
     }

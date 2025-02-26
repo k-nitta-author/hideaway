@@ -9,6 +9,8 @@ namespace Hideaway.Events
     {
         IEntity Entity {get; set;}
 
+        string Name {get; set;}
+
 
     }
 }

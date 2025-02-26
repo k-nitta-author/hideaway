@@ -16,7 +16,7 @@ namespace Hideway.Entities
         public void Destroy()
         {            
             // triggers a DespawnEvent for the current object and then frees the object from memory
-            DespawnEvent despawn = new DespawnEvent(this); 
+            DespawnEvent despawn = new DespawnEvent(this, "Player Despawned"); 
 
             QueueFree();
         }

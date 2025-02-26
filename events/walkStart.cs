@@ -8,6 +8,7 @@ namespace Hideaway.Events
     {
         // The entity that started walking
         public IEntity Entity { get; set; }
+        public string Name { get; set; }
 
 
         // Constructor
