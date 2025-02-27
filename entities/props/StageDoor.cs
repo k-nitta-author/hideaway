@@ -1,9 +1,9 @@
 using Godot;
 using System;
 using Hideaway.Events;
-using Hideaway.Entities;
+using Hideaway.Entities.Props;
 
-public partial class StageDoor : Area2D, IEventBusPublisher, IEntity
+public partial class StageDoor : Area2D, IEventBusPublisher, IProp
 {
 
 	private Stage CurrentStage;
@@ -13,14 +13,14 @@ public partial class StageDoor : Area2D, IEventBusPublisher, IEntity
 
 	string egressName {get; set;}
 
+	Map CurrentMap;
+
     public AnimationPlayer Anim { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public Sprite2D Sprite { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
 	{
-		// Get the current stage
-		CurrentStage = GetParent<Stage>();
 
 		Initialize();
 	}
@@ -50,7 +50,7 @@ public partial class StageDoor : Area2D, IEventBusPublisher, IEntity
 		CheckBeforeExitStage((Player)body);
 
 		// play this animation when the player exits scene
-		this.Anim.Play("exit");
+		//this.Anim.Play("exit");
 
 		// publish the exit stage event
 
@@ -76,11 +76,19 @@ public partial class StageDoor : Area2D, IEventBusPublisher, IEntity
     {
         this.Anim = GetNode<AnimationPlayer>("AnimationPlayer");
         this.Sprite = GetNode<Sprite2D>("Sprite2D");
+
+		// Get the current map
+		this.CurrentMap = GetParent<Map>();
+		this.CurrentMap.AddEgress(this);
+
+		// Get the current stage
+		this.CurrentStage = GetParent().GetParent<Stage>();
+
+		
     }
 
     public void Update(double delta)
     {
-        throw new NotImplementedException();
     }
 
     public void Destroy()

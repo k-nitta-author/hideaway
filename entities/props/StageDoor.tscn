@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://caeyphhgnahcy"]
+[gd_scene load_steps=3 format=3 uid="uid://caeyphhgnahcy"]
 
 [ext_resource type="Script" path="res://entities/props/StageDoor.cs" id="1_wqf46"]
+[ext_resource type="Texture2D" uid="uid://d1203dimlojxv" path="res://assets/props/Door.png" id="2_ed50l"]
 
 [node name="StageDoor" type="Area2D"]
 script = ExtResource("1_wqf46")
 nextStage = "Stage"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ed50l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 

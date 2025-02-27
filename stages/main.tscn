@@ -1,27 +1,31 @@
-[gd_scene load_steps=6 format=3 uid="uid://ubbqiin52ger"]
+[gd_scene load_steps=7 format=3 uid="uid://ubbqiin52ger"]
 
 [ext_resource type="Script" path="res://stages/Stage.cs" id="1_5hys1"]
 [ext_resource type="PackedScene" uid="uid://bmc0q0jr8wvjl" path="res://entities/player/player.tscn" id="2_vuc75"]
 [ext_resource type="Texture2D" uid="uid://iap3vqgp3l3u" path="res://assets/icon.svg" id="4_7qwmk"]
-[ext_resource type="PackedScene" uid="uid://caeyphhgnahcy" path="res://entities/props/StageDoor.tscn" id="5_46u3h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhult"]
-size = Vector2(152, 315)
+[ext_resource type="Script" path="res://stages/PlayerCamera.cs" id="5_6qwhf"]
+[ext_resource type="PackedScene" uid="uid://cwqe7p81k30gb" path="res://stages/maps/map.tscn" id="5_45uyx"]
+[ext_resource type="PackedScene" uid="uid://ys3essiotcyy" path="res://stages/hud/hud.tscn" id="6_rblt5"]
 
 [node name="Main" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_5hys1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
-[node name="Player" parent="." instance=ExtResource("2_vuc75")]
-position = Vector2(79, 39)
-
-[node name="StageDoor" parent="." instance=ExtResource("5_46u3h")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StageDoor"]
-position = Vector2(127, 162)
-shape = SubResource("RectangleShape2D_fhult")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(909, 538)
 texture = ExtResource("4_7qwmk")
+
+[node name="Map" parent="." instance=ExtResource("5_45uyx")]
+
+[node name="Player" parent="." instance=ExtResource("2_vuc75")]
+position = Vector2(79, 39)
+Speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
+script = ExtResource("5_6qwhf")
+
+[node name="Hud" parent="." instance=ExtResource("6_rblt5")]

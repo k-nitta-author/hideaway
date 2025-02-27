@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bmc0q0jr8wvjl"]
 
 [ext_resource type="Script" path="res://entities/player/Player.cs" id="1_8ilcc"]
-[ext_resource type="Texture2D" uid="uid://cjeyd036c76r2" path="res://assets/characters/character sheet.png" id="2_60jm7"]
+[ext_resource type="Texture2D" uid="uid://barubdqc56gsv" path="res://assets/characters/character sheet.png" id="2_60jm7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5at16"]
 size = Vector2(23, 8)
@@ -186,7 +186,7 @@ region_rect = Rect2(0, 0, 72, 72)
 position = Vector2(0, -19)
 texture = ExtResource("2_60jm7")
 region_enabled = true
-region_rect = Rect2(48, 120, 24, 24)
+region_rect = Rect2(24, 96, 24, 24)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
