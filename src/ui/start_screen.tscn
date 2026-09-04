@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://utir3ckup6af"]
 
-[ext_resource type="Script" uid="uid://hhd236d136mq" path="res://start_screen.gd" id="1_0mrfg"]
+[ext_resource type="Script" uid="uid://hhd236d136mq" path="res://src/ui/start_screen.gd" id="1_0mrfg"]
 [ext_resource type="Theme" uid="uid://d1145g8rw43b2" path="res://assets/ui/defaultTheme.tres" id="1_657fy"]
 
 [node name="StartScreen" type="Control" unique_id=717691629]

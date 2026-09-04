@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://ys3essiotcyy"]
 
-[ext_resource type="Script" uid="uid://ctf7ybbxovpfc" path="res://src/stages/hud/Hud.cs" id="1_l48kn"]
-[ext_resource type="PackedScene" uid="uid://5iexhjb4ajyi" path="res://src/stages/hud/pause_menu.tscn" id="2_g7nov"]
+[ext_resource type="Script" uid="uid://ctf7ybbxovpfc" path="res://src/ui/hud/Hud.cs" id="1_l48kn"]
+[ext_resource type="PackedScene" uid="uid://5iexhjb4ajyi" path="res://src/ui/hud/pause_menu.tscn" id="2_g7nov"]
+[ext_resource type="PackedScene" uid="uid://utir3ckup6af" path="res://src/ui/start_screen.tscn" id="2_ydl45"]
 
 [sub_resource type="Animation" id="Animation_u33un"]
 resource_name = "basic_transition"
@@ -13,6 +14,9 @@ _data = {
 
 [node name="Hud" type="CanvasLayer" unique_id=722406771]
 script = ExtResource("1_l48kn")
+
+[node name="StartScreen" parent="." unique_id=717691629 instance=ExtResource("2_ydl45")]
+visible = false
 
 [node name="TransitionLayer" type="ColorRect" parent="." unique_id=1408249917]
 visible = false

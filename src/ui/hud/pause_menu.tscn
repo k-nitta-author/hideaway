@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://5iexhjb4ajyi"]
 
-[ext_resource type="Script" uid="uid://7884qhkf2aj6" path="res://src/stages/hud/PauseMenu.cs" id="1_6gey2"]
+[ext_resource type="Script" uid="uid://7884qhkf2aj6" path="res://src/ui/hud/PauseMenu.cs" id="1_6gey2"]
 
 [node name="PauseMenu" type="Panel"]
 visible = false
