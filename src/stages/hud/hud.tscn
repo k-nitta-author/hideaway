@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://ys3essiotcyy"]
+
+[ext_resource type="Script" uid="uid://ctf7ybbxovpfc" path="res://src/stages/hud/Hud.cs" id="1_l48kn"]
+[ext_resource type="PackedScene" uid="uid://5iexhjb4ajyi" path="res://src/stages/hud/pause_menu.tscn" id="2_g7nov"]
+
+[sub_resource type="Animation" id="Animation_u33un"]
+resource_name = "basic_transition"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7dphf"]
+_data = {
+&"basic_transition": SubResource("Animation_u33un")
+}
+
+[node name="Hud" type="CanvasLayer" unique_id=722406771]
+script = ExtResource("1_l48kn")
+
+[node name="TransitionLayer" type="ColorRect" parent="." unique_id=1408249917]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="StageName" type="Label" parent="." unique_id=1615440132]
+visible = false
+offset_left = 560.0
+offset_top = 264.0
+offset_right = 600.0
+offset_bottom = 287.0
+text = "StageName"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=89273560]
+libraries/ = SubResource("AnimationLibrary_7dphf")
+
+[node name="PauseMenu" parent="." unique_id=1072595922 instance=ExtResource("2_g7nov")]
