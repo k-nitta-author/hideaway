@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dgelofxg2hdq"]
+
+[ext_resource type="Script" uid="uid://b7rjtquj3msfb" path="res://src/stages/TriggerArea.cs" id="1_gv25n"]
+
+[node name="TriggerArea" type="Area2D" unique_id=1595923030]
+script = ExtResource("1_gv25n")
