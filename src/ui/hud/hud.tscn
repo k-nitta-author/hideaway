@@ -18,15 +18,6 @@ script = ExtResource("1_l48kn")
 [node name="StartScreen" parent="." unique_id=717691629 instance=ExtResource("2_ydl45")]
 visible = false
 
-[node name="TransitionLayer" type="ColorRect" parent="." unique_id=1408249917]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="StageName" type="Label" parent="." unique_id=1615440132]
 visible = false
 offset_left = 560.0
@@ -39,3 +30,19 @@ text = "StageName"
 libraries/ = SubResource("AnimationLibrary_7dphf")
 
 [node name="PauseMenu" parent="." unique_id=1072595922 instance=ExtResource("2_g7nov")]
+
+[node name="EffectsControl" type="Control" parent="." unique_id=1069037398]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TransitionLayer" type="ColorRect" parent="EffectsControl" unique_id=1408249917]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

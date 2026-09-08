@@ -5,20 +5,20 @@
 [ext_resource type="Texture2D" uid="uid://iap3vqgp3l3u" path="res://assets/icon.svg" id="4_7qwmk"]
 [ext_resource type="PackedScene" uid="uid://bmc0q0jr8wvjl" path="res://src/entities/player/player.tscn" id="4_axc3a"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=2138490053]
 y_sort_enabled = true
 script = ExtResource("1_5hys1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1205836103]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1653715130]
 position = Vector2(909, 538)
 texture = ExtResource("4_7qwmk")
 
-[node name="Map" parent="." instance=ExtResource("3_ytp23")]
+[node name="Map" parent="." unique_id=433847154 instance=ExtResource("3_ytp23")]
 
-[node name="Player" parent="." instance=ExtResource("4_axc3a")]
+[node name="Player" parent="." unique_id=1458165964 instance=ExtResource("4_axc3a")]
 Speed = 200.0
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1600965600]
 zoom = Vector2(4, 4)

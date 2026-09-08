@@ -1,20 +1,18 @@
 using Godot;
-using System;
-
 
 // the user heads-up-display
 public partial class Hud : CanvasLayer{
 
     Label StageName; // the name of the current stage, passed from the parent scene
     AnimationPlayer AnimationPlayer; // the animation player used to play scene transitions
-    ColorRect TransitionLayer; // the transition layer itself
+    Control TransitionLayer; // the transition layer itself
 
     public override void _Ready(){
         
         // Get the nodes
         StageName = GetNode<Label>("StageName");
         AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
-        TransitionLayer = GetNode<ColorRect>("TransitionLayer");
+        TransitionLayer = GetNode<Control>("EffectsControl");
 
     }
 

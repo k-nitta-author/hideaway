@@ -29,7 +29,6 @@ public partial class Stage : Node2D, IEventSubscriber
 		this.PlayStageIntro();
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -62,12 +61,6 @@ public partial class Stage : Node2D, IEventSubscriber
 
 		}
 	}
-
-	private void test1()
-	{
-
-	}
-
 
 	public void PlayStageIntro(){
 		// Implement logic to play the stage intro
@@ -105,7 +98,6 @@ public partial class Stage : Node2D, IEventSubscriber
 		Map MapInstance = NewMapScene.Instantiate<Map>();
 
 		return MapInstance;
-		
 	}
 
     public void SubscribeTo(IEventPublisher publisher)
