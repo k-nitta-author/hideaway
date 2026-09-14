@@ -9,39 +9,43 @@ using System.Linq;
 using Hideway.Events;
 using System.Collections;
 
-public partial class Player : CharacterBody2D, IEntity, IWalkable, IInteractor, IEventPublisher, IJumpable
+public partial class Player : BaseActor
 {
-    [Export]
-    public double Speed { get; set; } = 100;
-    [Export]
-    public bool IsWalking { get; set; }
-    public AnimationPlayer Anim { get; set; }
-
-    [Export]
-    public bool CanInteract { get; set; }
 
     public Sprite2D Body { get; set; }
     public Sprite2D Head { get; set; }
-    public Sprite2D Sprite{ get; set; }
     public Area2D InteractBox {get; set;}
 
-
-    public IEventSubscriber[] Subscribers { get; set; }
     public int JumpStrength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public int JumpHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     public bool IsJumping { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 
     //public Sprite2D Accessory { get; set; }
-
-
-
     public override void _Ready()
     {
         this.Initialize();
     }
 
-    // Called every frame. 
+    // do an idle animation or something
+    public void idle()
+    {
+        
+    }
+
+    // called when the player must jump
+    public void Jump()
+    {
+        GD.Print("Jumping");
+    }
+
+    // called when player talks
+    public void talk()
+    {
+        
+    }
+
+    // Called when the player must walk 
     public void Walk(double distance, Vector2 direction)
 	{
 
@@ -222,8 +226,5 @@ public partial class Player : CharacterBody2D, IEntity, IWalkable, IInteractor, 
         
     }
 
-    public void Jump()
-    {
-        GD.Print("Jumping");
-    }
+
 }
