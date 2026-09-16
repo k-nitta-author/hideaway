@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ctf7ybbxovpfc" path="res://src/ui/hud/Hud.cs" id="1_l48kn"]
 [ext_resource type="PackedScene" uid="uid://5iexhjb4ajyi" path="res://src/ui/hud/pause_menu.tscn" id="2_g7nov"]
-[ext_resource type="PackedScene" uid="uid://utir3ckup6af" path="res://src/ui/start_screen.tscn" id="2_ydl45"]
+[ext_resource type="Theme" uid="uid://c5rgec464qc5f" path="res://src/ui/main_theme.tres" id="2_udh2q"]
 
 [sub_resource type="Animation" id="Animation_u33un"]
 resource_name = "basic_transition"
@@ -15,8 +15,15 @@ _data = {
 [node name="Hud" type="CanvasLayer" unique_id=722406771]
 script = ExtResource("1_l48kn")
 
-[node name="StartScreen" parent="." unique_id=717691629 instance=ExtResource("2_ydl45")]
-visible = false
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=89273560]
+libraries/ = SubResource("AnimationLibrary_7dphf")
+
+[node name="Control" type="Control" parent="." unique_id=124180967]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("2_udh2q")
 
 [node name="StageName" type="Label" parent="." unique_id=1615440132]
 visible = false
@@ -25,9 +32,6 @@ offset_top = 264.0
 offset_right = 600.0
 offset_bottom = 287.0
 text = "StageName"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=89273560]
-libraries/ = SubResource("AnimationLibrary_7dphf")
 
 [node name="PauseMenu" parent="." unique_id=1072595922 instance=ExtResource("2_g7nov")]
 

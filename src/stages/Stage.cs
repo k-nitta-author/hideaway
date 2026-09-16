@@ -3,6 +3,7 @@ using Hideaway;
 using Hideaway.Events;
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 public partial class Stage : Node2D, IEventSubscriber
 {
@@ -10,7 +11,9 @@ public partial class Stage : Node2D, IEventSubscriber
 	private AnimationPlayer anim;
 	private Hud hud;
 
-	public Map CurrentMap; 
+	public Map CurrentMap;
+
+	public Player player;
 
 	/// <summary>
 	/// Called when the node enters the scene tree for the first time.
@@ -18,19 +21,31 @@ public partial class Stage : Node2D, IEventSubscriber
 	public override void _Ready()
 	{
 		// initialize child nodes
-		this.anim = GetNode<AnimationPlayer>("AnimationPlayer"); // used to animate stage behaviors like scene transitions, etc.
-		this.hud = GetNode<Hud>("hud");
+		anim = GetNode<AnimationPlayer>("AnimationPlayer"); // used to animate stage behaviors like scene transitions, etc.
+		hud = GetNode<Hud>("hud");
 
 		// the default map of the main scene
-		this.CurrentMap = GetNode<Map>("Map");
+		CurrentMap = GetNode<Map>("Map");
 		
 
 		// Implement logic to start the stage
-		this.PlayStageIntro();
+		PlayStageIntro();
 	}
 
 	public override void _Process(double delta)
 	{
+	}
+
+	public Stage Setup(Game game)
+	{
+		return this;
+	}
+
+	public Stage WithPlayerAt(Vector2 position)
+	{
+		player.GlobalPosition = position;
+
+		return this;
 	}
 
     public override void _PhysicsProcess(double delta)
@@ -58,46 +73,11 @@ public partial class Stage : Node2D, IEventSubscriber
 			//GD.Print("Key pressed: ");
 
 			return;
-
 		}
 	}
 
 	public void PlayStageIntro(){
 		// Implement logic to play the stage intro
-
-		
-
-	}
-	
-	// This method is called when the player enters a stage door
-	public void HandleExitStage(ExitStage e)
-	{
-
-		if (e.Name == null || e.Name == "")
-		{
-			GD.Print("Stage name is null");
-			return;
-		}
-
-		string mapFolder = "res://stages/maps/";
-
-		Map NextMap = this.LoadNextMap(mapFolder + e.NextStage + ".tscn");
-
-		GD.Print("Test:" + NextMap.Name);
-
-		NextMap.SwtichMap(this);
-
-		// Implement logic to leave the stage
-		//GetTree().ChangeSceneToFile("res://stages/" + e.NextStage + ".tscn");
-	}
-
-	private Map LoadNextMap(string NextMapName)
-	{
-		PackedScene NewMapScene = GD.Load<PackedScene>(NextMapName);
-
-		Map MapInstance = NewMapScene.Instantiate<Map>();
-
-		return MapInstance;
 	}
 
     public void SubscribeTo(IEventPublisher publisher)
