@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dgcppato7jwkw"]
+
+[ext_resource type="Script" uid="uid://b1kdgrs11dt38" path="res://mock_os.gd" id="1_v6wfq"]
+
+[node name="MockOS" type="Control" unique_id=1780775075]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v6wfq")
+
+[node name="appIconsControl" type="Control" parent="." unique_id=1094188262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="wallpaper" type="TextureRect" parent="." unique_id=1157906431]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="startButton" type="Button" parent="." unique_id=306806041]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 592.0
+offset_right = 133.0
+offset_bottom = 630.0
+text = "start"
