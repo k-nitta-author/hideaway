@@ -2,12 +2,8 @@ using Godot;
 using System;
 using Hideaway.Entities;
 using Hideaway.Events;
-using System.Collections.Generic;
-using Godot.Collections;
-using Hideaway;
 using System.Linq;
 using Hideway.Events;
-using System.Collections;
 
 public partial class Player : BaseActor
 {
@@ -16,9 +12,9 @@ public partial class Player : BaseActor
     public Sprite2D Head { get; set; }
     public Area2D InteractBox {get; set;}
 
-    public int JumpStrength { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public int JumpHeight { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public bool IsJumping { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public int JumpStrength { get; set; }
+    public int JumpHeight { get; set; }
+    public bool IsJumping { get; set; }
 
 
     //public Sprite2D Accessory { get; set; }
@@ -40,7 +36,7 @@ public partial class Player : BaseActor
     }
 
     // called when player talks
-    public void talk()
+    public void Talk()
     {
         
     }
@@ -80,26 +76,20 @@ public partial class Player : BaseActor
 	{
 
 		// Implement stop logic here
-		
         if (this.IsWalking){
             IsWalking = false;
         }
-
         else{            
-            
             // alert the event bus that the player is walking
             // TODO: Implement event bus
             //WalkStart walkStart = new WalkStart(this);
             return;
-
         }
 		
 	}
 
     public void Initialize()
     {
-        GD.Print("Player initialized");
-        
         this.Anim = GetNode<AnimationPlayer>("AnimationPlayer");
         this.Sprite = GetNode<Sprite2D>("Sprite");
         this.Head = GetNode<Sprite2D>("Head");
@@ -204,7 +194,7 @@ public partial class Player : BaseActor
         // 
         bool NumberOfBodies = InteractBox.GetOverlappingBodies().Count == 0;
 
-        this.CanInteract = NumberOfBodies;
+        CanInteract = NumberOfBodies;
     }
 
     public void Publish(IEvent e)
