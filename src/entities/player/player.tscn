@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://6efk5oglg3rq" path="res://src/entities/player/Player.cs" id="1_8ilcc"]
 [ext_resource type="Texture2D" uid="uid://barubdqc56gsv" path="res://assets/characters/character sheet.png" id="2_60jm7"]
+[ext_resource type="Script" uid="uid://cd3sw40dp6g8f" path="res://src/entities/player/interact_box.gd" id="3_wrxq6"]
+[ext_resource type="Script" uid="uid://ny8wo23x4svl" path="res://src/entities/actor_state_manager.gd" id="4_ketdh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5at16"]
 size = Vector2(23, 8)
@@ -154,27 +156,26 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xi3ca"]
 _data = {
-"RESET": SubResource("Animation_4nsqf"),
-"idle": SubResource("Animation_hcjgl"),
-"walk_down": SubResource("Animation_4ypaw"),
-"walk_left": SubResource("Animation_7rq0f"),
-"walk_right": SubResource("Animation_xjuwc"),
-"walk_up": SubResource("Animation_1rvdc")
+&"RESET": SubResource("Animation_4nsqf"),
+&"idle": SubResource("Animation_hcjgl"),
+&"walk_down": SubResource("Animation_4ypaw"),
+&"walk_left": SubResource("Animation_7rq0f"),
+&"walk_right": SubResource("Animation_xjuwc"),
+&"walk_up": SubResource("Animation_1rvdc")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2sj06"]
 size = Vector2(28, 39)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=1505711873]
 motion_mode = 1
 script = ExtResource("1_8ilcc")
-Speed = 600.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1128161517]
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_5at16")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="Sprite2D" parent="." unique_id=1890535394]
 position = Vector2(0, -5)
 texture = ExtResource("2_60jm7")
 hframes = 3
@@ -182,21 +183,23 @@ vframes = 3
 region_enabled = true
 region_rect = Rect2(0, 0, 72, 72)
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Head" type="Sprite2D" parent="." unique_id=1688021260]
 position = Vector2(0, -19)
 texture = ExtResource("2_60jm7")
 region_enabled = true
 region_rect = Rect2(24, 96, 24, 24)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_xi3ca")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=67148023]
+libraries/ = SubResource("AnimationLibrary_xi3ca")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1543724320]
 
-[node name="InteractBox" type="Area2D" parent="."]
+[node name="InteractBox" type="Area2D" parent="." unique_id=1430429725]
+script = ExtResource("3_wrxq6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractBox" unique_id=90299236]
 position = Vector2(0, -13.5)
 shape = SubResource("RectangleShape2D_2sj06")
+
+[node name="stateManager" type="Node" parent="." unique_id=1314146267]
+script = ExtResource("4_ketdh")
