@@ -2,7 +2,7 @@ class_name BaseState
 extends RefCounted
 
 # called when player enters state
-func enter() -> void: pass
+func enter(previous: BaseState, next: BaseState) -> void: pass
 
 # called when player exits state
 func exit() -> void: pass
